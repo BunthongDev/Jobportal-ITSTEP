@@ -30,7 +30,7 @@ public class UsersController {
         List<UsersType> usersTypes = usersTypeService.getAll();
         model.addAttribute("getAllTypes", usersTypes);
         model.addAttribute("user", new Users());
-        return "register";
+        return "dashboard";
     }
 
     @PostMapping("/register/new")
