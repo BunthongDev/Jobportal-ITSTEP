@@ -19,7 +19,7 @@ public class JobPostActivityController {
         this.usersService = usersService;
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping("/dashboard/")
     public String searchJobs(Model model) {
 
         Object currentUserProfile = usersService.getCurrentUserProfile();
@@ -31,7 +31,7 @@ public class JobPostActivityController {
         }
 
         model.addAttribute("user", currentUserProfile);
-
+        System.out.println("Dashboard");
         return "dashboard";
     }
 }
