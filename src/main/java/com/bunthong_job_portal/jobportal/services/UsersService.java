@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.Optional;
-
 @Service
 public class UsersService {
 
@@ -83,6 +82,10 @@ public class UsersService {
         return null;
     }
 
+    public Users findByEmail(String currentUsername) {
+        return usersRepository.findByEmail(currentUsername).orElseThrow(() -> new UsernameNotFoundException("User not " +
+                "found"));
+    }
 
     public Optional<Users> getUserByEmail(String email) {
         return usersRepository.findByEmail(email);
