@@ -1,6 +1,5 @@
 package com.bunthong_job_portal.jobportal.controller;
 
-
 import com.bunthong_job_portal.jobportal.entity.*;
 import com.bunthong_job_portal.jobportal.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +89,7 @@ public class JobSeekerApplyController {
             Users user = usersService.findByEmail(currentUsername);
             Optional<JobSeekerProfile> seekerProfile = jobSeekerProfileService.getOne(user.getUserId());
             JobPostActivity jobPostActivity = jobPostActivityService.getOne(id);
+
             if (seekerProfile.isPresent() && jobPostActivity != null) {
                 jobSeekerApply = new JobSeekerApply();
                 jobSeekerApply.setUserId(seekerProfile.get());
